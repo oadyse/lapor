@@ -15,7 +15,9 @@ return new class extends Migration
     {
         Schema::create('paket_iklan', function (Blueprint $table) {
             $table->id();
-            $table->text('keterangan');
+            $table->string('nama');
+            $table->integer('periode');
+            $table->integer('harga' );
             $table->timestamps();
         });
     }
