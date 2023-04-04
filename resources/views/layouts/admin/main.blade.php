@@ -13,7 +13,7 @@
           </div>
     </div>
     <!-- loader END -->
-    @include('layouts.admin.menu')
+    @include('layouts.admin.sidemenu')
     <footer class="iq-footer">
         <div class="container-fluid">
             <div class="row">
@@ -34,5 +34,6 @@
         </div>
     </footer>
     @include('layouts.admin.scripts')
+    @yield('scripts')
   </body>
 </html>

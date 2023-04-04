@@ -37,6 +37,11 @@
                                  <div class="form-group">
                                     <label class="text-secondary">{{ __('Email Address') }}</label>
                                     <input class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" name="email" required placeholder="Enter Email">
+                                    @error('email')
+                                       <span class="invalid-feedback" role="alert">
+                                             <strong>{{ $message }}</strong>
+                                       </span>
+                                    @enderror
                                  </div>
                               </div>
                               <div class="col-lg-12 mt-2">
@@ -44,6 +49,11 @@
                                      <div class="d-flex justify-content-between align-items-center">
                                          <label class="text-secondary">Password</label>
                                          <label><a href="auth-recover-pwd.html">Forgot Password?</a></label>
+                                         @error('password')
+                                             <span class="invalid-feedback" role="alert">
+                                                   <strong>{{ $message }}</strong>
+                                             </span>
+                                         @enderror
                                      </div>
                                     <input class="form-control @error('password') is-invalid @enderror" type="password" name="password" required placeholder="Enter Password">
                                  </div>

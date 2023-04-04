@@ -10,4 +10,11 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    public $viewDir = '';
+
+    public function view($view,$data=[]) {
+        $blade = $this->viewDir.'.'.$view;
+        return view($blade,$data);
+    }
 }

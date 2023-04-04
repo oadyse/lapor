@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Admin\HilangController;
+
 Route::get('/', function () {
     return view('homepage');
 });
@@ -19,7 +21,19 @@ Route::middleware(['auth', 'user-access:user'])->group(function () {
 });
 
 // ADMIN
-Route::middleware(['auth', 'user-access:admin'])->group(function () {
+Route::middleware(['auth', 'user-access:admin'])->controller(AdminController::class)->group(function () {
   
-    Route::get('/admin/home', [AdminController::class, 'index'])->name('dashboard');
+    Route::get('/admin/home','index')->name('dashboard');
+
+});
+
+// Barang Hilang
+Route::middleware(['auth', 'user-access:admin'])->controller(HilangController::class)->group(function () {
+  
+    Route::get('/admin/barang/hilang', 'index')->name('barang.hilang');
+    Route::post('/admin/barang/hilang/page', 'pagination')->name('barang.hilang.page');
+    Route::post('/admin/barang/hilang/create', 'create')->name('barang.hilang.create');
+
+    Route::get('/admin/barang/hilang/page', function() {return redirect(route('barang.hilang'));});
+    Route::get('/admin/barang/hilang/create', function() {return redirect(route('barang.hilang'));});
 });
