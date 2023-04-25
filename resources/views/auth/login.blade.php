@@ -61,7 +61,7 @@
                            </div>
                            <button type="submit" class="btn btn-primary btn-block mt-2">Log In</button>
                            <div class="col-lg-12 mt-3">
-                                <p class="mb-0 text-center">Don't have an account? <a href="auth-sign-up.html">Sign Up</a></p>
+                                <p class="mb-0 text-center">Don't have an account? <a href="/register">Sign Up</a></p>
                            </div>
                         </form>
                      </div>

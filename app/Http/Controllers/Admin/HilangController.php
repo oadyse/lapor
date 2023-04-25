@@ -39,7 +39,7 @@ class HilangController extends Controller
         ]);
         $model->save();
 
-        return $this->view('index');
+        return redirect()->route('barang.hilang');
     }
 
     public function upload($field,$request) {

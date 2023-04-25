@@ -39,7 +39,7 @@ class TemuanController extends Controller
         ]);
         $model->save();
 
-        return $this->view('index');
+        return redirect()->route('barang.temuan');
     }
 
     public function upload($field,$request) {
