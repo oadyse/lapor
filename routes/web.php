@@ -6,10 +6,12 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Admin\HilangController;
 use App\Http\Controllers\Admin\TemuanController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\IklanController;
+use App\Http\Controllers\Admin\PaketIklanController;
 
 Route::get('/', function () {
     return view('homepage');
-});
+})->name('index');
 
 Auth::routes();
 
@@ -52,6 +54,26 @@ Route::middleware(['auth', 'user-access:admin'])->controller(TemuanController::c
     Route::get('/admin/barang/temuan/create', function() {return redirect(route('barang.temuan'));});
 });
 
+// Iklan
+Route::middleware(['auth', 'user-access:admin'])->controller(IklanController::class)->group(function () {
+
+    Route::get('/admin/iklan', 'index')->name('iklan');
+    Route::post('/admin/iklan/page', 'pagination')->name('iklan.page');
+    Route::post('/admin/iklan/create', 'create')->name('iklan.create');
+
+    Route::get('/admin/iklan/page', function() {return redirect(route('iklan'));});
+});
+
+// Iklan
+Route::middleware(['auth', 'user-access:admin'])->controller(PaketIklanController::class)->group(function () {
+
+    Route::get('/admin/paket-iklan', 'index')->name('paket-iklan');
+    Route::post('/admin/paket-iklan/page', 'pagination')->name('paket-iklan.page');
+    Route::post('/admin/paket-iklan/create', 'create')->name('paket-iklan.create');
+
+    Route::get('/admin/paket-iklan/page', function() {return redirect(route('paket-iklan'));});
+});
+
 Route::middleware(['auth', 'user-access:admin'])->controller(UserController::class)->group(function () {
 
     Route::get('/admin/user', 'index')->name('user');
@@ -67,3 +89,8 @@ Route::middleware(['auth', 'user-access:admin'])->controller(UserController::cla
     Route::get('/admin/user/update', function() {return redirect(route('user'));});
     Route::get('/admin/user/delete', function() {return redirect(route('user'));});
 });
+
+Route::get('/unit-hilang', [App\Http\Controllers\HomeController::class, 'unitHilang'])->name('home.hilang');
+Route::get('/unit-temuan', [App\Http\Controllers\HomeController::class, 'unitDitemukan'])->name('home.temuan');
+Route::get('/syarat-asuransi', [App\Http\Controllers\HomeController::class, 'asuransi'])->name('home.asuransi');
+Route::get('/syarat-klaim', [App\Http\Controllers\HomeController::class, 'klaimTemuan'])->name('home.klaim');

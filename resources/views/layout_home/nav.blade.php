@@ -2,7 +2,7 @@
     <div class="container d-flex align-items-center justify-content-between">
 
         <div class="logo">
-            <h1><a href="index.html">PT LAPOR</a></h1>
+            <h1><a href="{{route('index')}}">PT LAPOR</a></h1>
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
         </div>
@@ -16,8 +16,8 @@
                 @if (Route::has('login'))
                     @auth
                         <li>
-                            <a href="{{ url('/home') }}"
-                                class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
+                            <a href="{{ url('/admin/home') }}"
+                                class="text-sm text-gray-700 dark:text-gray-500 underline">Admin</a>
                         </li>
                     @else
                         <li>
