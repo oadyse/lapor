@@ -5,6 +5,8 @@
     <!-- ======= Nav ======= -->
     @include('layout_home.nav')
     <!-- End Nav -->
+    
+    @include('iklan')
 
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex flex-column justify-content-end align-items-center">
@@ -72,7 +74,6 @@
         </svg>
 
     </section><!-- End Hero -->
-
     <main id="main">
 
         <!-- ======= About Section ======= -->
@@ -120,13 +121,13 @@
             <div class="container">
                 <ul class="nav nav-tabs row d-flex m-5">
                     <li class="nav-item col-6" data-aos="zoom-in">
-                        <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">
+                        <a class="nav-link active show" href="{{route('home.hilang')}}">
                             <i class="ri-gps-line"></i>
                             <h4 class="d-none d-lg-block">Lapor Unit Hilang</h4>
                         </a>
                     </li>
                     <li class="nav-item col-6" data-aos="zoom-in" data-aos-delay="100">
-                        <a class="nav-link" data-bs-toggle="tab" href="#tab-2">
+                        <a class="nav-link" href="{{route('home.temuan')}}">
                             <i class="ri-body-scan-line"></i>
                             <h4 class="d-none d-lg-block">Lapor Unit Ditemukan</h4>
                         </a>
@@ -134,7 +135,7 @@
                 </ul>
                 <ul class="nav nav-tabs row d-flex m-5">
                     <li class="nav-item col-6" data-aos="zoom-in">
-                        <a class="nav-link" data-bs-toggle="tab" href="#tab-1">
+                        <a class="nav-link" href="{{route('home.asuransi')}}">
                             <i class="ri-gps-line"></i>
                             <h4 class="d-none d-lg-block">Syarat Dokumen Klaim Asuransi/Jasa</h4>
                         </a>
@@ -162,7 +163,7 @@
                 </ul>
                 <ul class="nav nav-tabs row d-flex m-5">
                     <li class="nav-item col-6" data-aos="zoom-in">
-                        <a class="nav-link" data-bs-toggle="tab" href="#tab-1">
+                        <a class="nav-link" href="{{route('home.klaim')}}">
                             <i class="ri-gps-line"></i>
                             <h4 class="d-none d-lg-block">Lapor Klaim 24 jam Asuransi</h4>
                         </a>
